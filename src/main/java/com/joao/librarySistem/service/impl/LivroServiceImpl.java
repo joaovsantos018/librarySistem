@@ -4,6 +4,7 @@ import com.joao.librarySistem.entities.Livro;
 import com.joao.librarySistem.repository.LivroRepository;
 import com.joao.librarySistem.service.LivroService;
 import lombok.Data;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,4 +30,12 @@ public class LivroServiceImpl implements LivroService {
     public List<Livro> listarLivros(){
         return livroRepository.findAll();
     }
+
+
+    @Override
+    public List<Livro> livrosDisponiveis() {
+        return livroRepository.findByDisponivelTrue();
+    }
+
+
 }

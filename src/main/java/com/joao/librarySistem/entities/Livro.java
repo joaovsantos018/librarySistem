@@ -21,4 +21,5 @@ public class Livro {
     private String genero;
     private String autor;
     private Boolean disponivel;
+    private int quantidade;
 }

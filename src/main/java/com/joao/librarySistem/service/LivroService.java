@@ -9,4 +9,5 @@ import java.util.List;
 public interface LivroService {
     Livro salvaLivro(Livro livro);
     List<Livro> listarLivros();
+    List<Livro> livrosDisponiveis();
 }

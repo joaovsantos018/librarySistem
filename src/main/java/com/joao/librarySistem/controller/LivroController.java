@@ -29,10 +29,31 @@ public class LivroController {
         return livroService.salvaLivro(livro);
     }
 
+
+    @Operation(description = "Lista todos os livros")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Livros encontrados"),
+            @ApiResponse(responseCode = "404", description = "Não encontrado"),
+    })
     @GetMapping("/list")
     public List<Livro> livros() {
         return livroService.listarLivros();
     }
+
+
+    @Operation(description = "Lista livros disponiveis")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Livros disponiveis encontrados"),
+            @ApiResponse(responseCode = "404", description = "Não encontrado"),
+    })
+    @GetMapping("/listAllAvailable")
+    public List<Livro> livrosDisponiveis() {
+        return livroService.livrosDisponiveis();
+    }
+
+
+
+
 
 
 
