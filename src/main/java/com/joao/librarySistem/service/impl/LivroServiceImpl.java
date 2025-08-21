@@ -1,12 +1,10 @@
 package com.joao.librarySistem.service.impl;
 
-import com.joao.librarySistem.DTO.LivroDTO;
-import com.joao.librarySistem.DTO.LivroRequestDTO;
+import com.joao.librarySistem.DTO.livroDTO.LivroRequestDTO;
 import com.joao.librarySistem.entities.Livro;
 import com.joao.librarySistem.repository.LivroRepository;
 import com.joao.librarySistem.service.LivroService;
 import lombok.Data;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,14 +31,10 @@ public class LivroServiceImpl implements LivroService {
         return livroRepository.save(livro);
     }
 
-
-
-
     @Override
     public List<Livro> listarLivros(){
-        return livroRepository.findAll();
+         return livroRepository.findAll();
     }
-
 
     @Override
     public List<Livro> livrosDisponiveis() {
@@ -51,5 +45,6 @@ public class LivroServiceImpl implements LivroService {
     public List<Livro> filtrarPorGenero(String genero){
         return livroRepository.findByGeneroIgnoreCase(genero);
     }
+
 
 }

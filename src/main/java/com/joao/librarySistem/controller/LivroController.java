@@ -1,6 +1,6 @@
 package com.joao.librarySistem.controller;
 
-import com.joao.librarySistem.DTO.LivroRequestDTO;
+import com.joao.librarySistem.DTO.livroDTO.LivroRequestDTO;
 import com.joao.librarySistem.entities.Livro;
 import com.joao.librarySistem.service.LivroService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/livros")

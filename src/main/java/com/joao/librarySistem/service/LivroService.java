@@ -1,9 +1,7 @@
 package com.joao.librarySistem.service;
 
-import com.joao.librarySistem.DTO.LivroDTO;
-import com.joao.librarySistem.DTO.LivroRequestDTO;
+import com.joao.librarySistem.DTO.livroDTO.LivroRequestDTO;
 import com.joao.librarySistem.entities.Livro;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
