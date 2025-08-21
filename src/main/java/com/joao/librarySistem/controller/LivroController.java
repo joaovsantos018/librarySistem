@@ -1,5 +1,6 @@
 package com.joao.librarySistem.controller;
 
+import com.joao.librarySistem.DTO.LivroRequestDTO;
 import com.joao.librarySistem.entities.Livro;
 import com.joao.librarySistem.service.LivroService;
 import io.swagger.v3.oas.annotations.Operation;
@@ -9,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/livros")
@@ -25,7 +27,7 @@ public class LivroController {
             @ApiResponse(responseCode = "400", description = "Erro ao salvar"),
     })
     @PostMapping("/add")
-    public Livro salvaLivro(@RequestBody Livro livro){
+    public Livro salvaLivro(@RequestBody LivroRequestDTO livro){
         return livroService.salvaLivro(livro);
     }
 
@@ -51,6 +53,11 @@ public class LivroController {
         return livroService.livrosDisponiveis();
     }
 
+
+    @GetMapping("/listByGender")
+    public List<Livro> filtrarLivrosPorGenero(@RequestParam String genero){
+        return livroService.filtrarPorGenero(genero);
+    }
 
 
 

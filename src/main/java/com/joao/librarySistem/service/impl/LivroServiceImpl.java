@@ -1,5 +1,7 @@
 package com.joao.librarySistem.service.impl;
 
+import com.joao.librarySistem.DTO.LivroDTO;
+import com.joao.librarySistem.DTO.LivroRequestDTO;
 import com.joao.librarySistem.entities.Livro;
 import com.joao.librarySistem.repository.LivroRepository;
 import com.joao.librarySistem.service.LivroService;
@@ -21,9 +23,17 @@ public class LivroServiceImpl implements LivroService {
 
 
     @Override
-    public Livro salvaLivro(Livro livro) {
+    public Livro salvaLivro(LivroRequestDTO livroDTO) {
+        Livro livro = new Livro();
+        livro.setTitulo(livroDTO.titulo());
+        livro.setAutor(livroDTO.autor());
+        livro.setGenero(livroDTO.genero());
+        livro.setDisponivel(true);
+
         return livroRepository.save(livro);
     }
+
+
 
 
     @Override
@@ -37,5 +47,9 @@ public class LivroServiceImpl implements LivroService {
         return livroRepository.findByDisponivelTrue();
     }
 
+    @Override
+    public List<Livro> filtrarPorGenero(String genero){
+        return livroRepository.findByGeneroIgnoreCase(genero);
+    }
 
 }

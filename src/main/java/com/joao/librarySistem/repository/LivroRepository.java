@@ -12,5 +12,6 @@ import java.util.UUID;
 public interface LivroRepository  extends JpaRepository<Livro, UUID> {
 
     List<Livro> findByDisponivelTrue();
+    List<Livro> findByGeneroIgnoreCase(String genero);
 
 }
